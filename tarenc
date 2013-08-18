@@ -12,3 +12,4 @@ echo $WD/$INPATH.tar.gz.gpg
 export DISPLAY=""
 
 tar zcvf - $INPATH | gpg -c > $WD/$INPATH.tar.gz.gpg
+
