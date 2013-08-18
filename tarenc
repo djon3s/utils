@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  echo "Usage: `basename $0` [FILE]"
+    exit 0
+fi
+
+INPATH="$1"
+WD=`pwd`
+echo $WD/$INPATH.tar.gz.gpg
+
+# Attempt to prevent GPG pinentry gui from appearing
+export DISPLAY=""
+
+tar zcvf - $INPATH | gpg -c > $WD/$INPATH.tar.gz.gpg
