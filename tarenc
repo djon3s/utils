@@ -6,10 +6,16 @@ fi
 
 INPATH="$1"
 WD=`pwd`
-echo $WD/$INPATH.tar.gz.gpg
+lastchar=${INPATH: -1:1}
 
+if [ "$lastchar" == "/" ];
+then
+	INPATH=${INPATH: 0:${#INPATH}-1}
+	echo "tarenc: Removing trailing \"/\" from path"
+fi
+
+echo "tarenc: Creating \"$INPATH.tar.gz.gpg\""
 # Attempt to prevent GPG pinentry gui from appearing
 export DISPLAY=""
-
-tar zcvf - $INPATH | gpg -c > $WD/$INPATH.tar.gz.gpg
+tar zcf - "$INPATH" | gpg -c > "$INPATH.tar.gz.gpg"
 
