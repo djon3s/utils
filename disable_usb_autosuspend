@@ -1,6 +1,14 @@
 #!/bin/bash
 # taken from http://askubuntu.com/questions/80638/how-to-disable-auto-power-off-of-usb-devices-like-usb-mouse
 
+ROOT_UID=0
+
+if [ $UID != $ROOT_UID ]; then
+    echo "Insufficient privileges. Try running with sudo or as root!"
+        exit 1
+    fi
+fi
+
 for i in /sys/bus/usb/devices/*/power/autosuspend;
     do echo 2 > $i;
 done
