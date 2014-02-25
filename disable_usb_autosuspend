@@ -5,8 +5,7 @@ ROOT_UID=0
 
 if [ $UID != $ROOT_UID ]; then
     echo "Insufficient privileges. Try running with sudo or as root!"
-        exit 1
-    fi
+    exit 1
 fi
 
 for i in /sys/bus/usb/devices/*/power/autosuspend;
