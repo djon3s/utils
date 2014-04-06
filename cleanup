@@ -1,14 +1,26 @@
 #!/bin/bash
 
-mv -v *.jpg *.jpeg ~/Pictures
-mv -v *.JPG *.JPEG ~/Pictures
-mv -v *.png ~/Pictures
-mv -v *.PNG ~/Pictures
-mv -v *.gif ~/Pictures
-mv -v *.GIF ~/Pictures
-mv -v *.svg ~/Pictures/
+PICS=~/Pictures
+VIDS=~/Videos
+MUSIC=~/Music
 
-mv -v *.mp4 ~/Videos
-mv -v *.MP4 ~/Videos
-mv -v *.avi ~/Videos
-mv -v *.AVI ~/Videos
+images='*.jpg *.png *.gif *.svg'
+
+for i in $images
+do
+find . -maxdepth 1 -iname $i -type f -print -exec mv {} $PICS \;
+done
+
+videos='*.mp4 *.m4v *.avi *.mpeg'
+for i in $videos
+do
+find . -maxdepth 1 -iname $i -type f -print -exec mv {} $VIDS \;
+done
+
+music='*.jpg *.ogg *.flac *.mp3  *.wav'
+for i in $music
+do
+find . -maxdepth 1 -iname $i -type f -print -exec mv {} $MUSIC \;
+done
+
+
