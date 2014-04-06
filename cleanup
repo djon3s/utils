@@ -17,7 +17,7 @@ do
 find . -maxdepth 1 -iname $i -type f -print -exec mv {} $VIDS \;
 done
 
-music='*.jpg *.ogg *.flac *.mp3  *.wav'
+music='*.m4a *.ogg *.flac *.mp3  *.wav'
 for i in $music
 do
 find . -maxdepth 1 -iname $i -type f -print -exec mv {} $MUSIC \;
