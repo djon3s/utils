@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mv -v *.jpg *.jpeg ~/Pictures
+mv -v *.JPG *.JPEG ~/Pictures
+mv -v *.png ~/Pictures
+mv -v *.PNG ~/Pictures
+mv -v *.gif ~/Pictures
+mv -v *.GIF ~/Pictures
+mv -v *.svg ~/Pictures/
+
+mv -v *.mp4 ~/Videos
+mv -v *.MP4 ~/Videos
+mv -v *.avi ~/Videos
+mv -v *.AVI ~/Videos
